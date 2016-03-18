@@ -5,6 +5,7 @@ const cors = require('cors');
 const endpoints = require('express-endpoints');
 const gracefulShutdown = require('http-graceful-shutdown');
 const agent = require('multiagent');
+const orderNotificationRoutes = require('./order-notification/index');
 
 // Define some default values if not set in environment
 const PORT = process.env.PORT || 3000;
@@ -28,11 +29,7 @@ app.get(SERVICE_CHECK_HTTP, (req, res) => res.send({ uptime: process.uptime() })
 app.get(SERVICE_ENDPOINTS, endpoints());
 
 // Add all other service routes
-app.post('/order-notification', (req, res) => {
-  res.status(501).send({
-    success: false
-  });
-});
+orderNotificationRoutes.registerRoutes(app);
 
 // Start the server
 const server = app.listen(PORT, () => console.log(`Service listening on port ${PORT} ...`));
