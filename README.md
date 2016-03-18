@@ -1,9 +1,9 @@
-# example-service
+# Notification service
 
-[![Build Status](https://travis-ci.org/c24-microws-mar/example-service.svg)](https://travis-ci.org/c24-microws-mar/example-service)
-[![Dependencies](https://david-dm.org/c24-microws-mar/example-service.svg)](https://david-dm.org/badges/shields)
+[![Build Status](https://travis-ci.org/c24-microws-mar/notification-service.svg)](https://travis-ci.org/c24-microws-mar/notification-service)
+[![Dependencies](https://david-dm.org/c24-microws-mar/notification-service.svg)](https://david-dm.org/badges/shields)
 
-This is a service example
+This is the service notification
 
 ## How to use
 
