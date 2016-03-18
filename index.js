@@ -6,15 +6,14 @@ const endpoints = require('express-endpoints');
 const gracefulShutdown = require('http-graceful-shutdown');
 const agent = require('multiagent');
 const orderNotificationRoutes = require('./order-notification/index');
+const config = require('./config');
 
 // Define some default values if not set in environment
 const PORT = process.env.PORT || 3000;
 const SHUTDOWN_TIMEOUT = process.env.SHUTDOWN_TIMEOUT || 10000;
 const SERVICE_CHECK_HTTP = process.env.SERVICE_CHECK_HTTP || '/healthcheck';
 const SERVICE_ENDPOINTS = process.env.SERVICE_ENDPOINTS || '/endpoints';
-const DISCOVERY_SERVERS = process.env.DISCOVERY_SERVERS
-  ? process.env.DISCOVERY_SERVERS.split(',')
-  : ['http://46.101.245.190:8500', 'http://46.101.132.55:8500', 'http://46.101.193.82:8500'];
+const DISCOVERY_SERVERS = config.discovery_servers;
 
 // Create a new express app
 const app = express();
