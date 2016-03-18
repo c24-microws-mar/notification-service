@@ -1,5 +1,9 @@
 Your order
 
+<html>
+<body style="color: #005ea8;">
+<div style="background-color: #005ea8; width:100%; color:#fff; font-size:20px; padding: 15px;">Check24 - MicroserviceWorkshop - MyBeatifullStore</div>
+
 Thank you {%name%} for your order
 
 Your order will be delivered to:
@@ -9,3 +13,5 @@ Your order will be delivered to:
 Your order contains the following items:
 
 {%items%}
+
+</body></html>

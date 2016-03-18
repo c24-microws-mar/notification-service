@@ -18,6 +18,7 @@ function render(template, name, address, items) {
         template = template.replace(new RegExp('\{\%' + prop + '\%\}', 'g'), templateVars[prop]);
     }
     const firstNewline = template.indexOf('\n');
+
     return {
       subject: template.substring(0, firstNewline),
       body: template.substring(firstNewline+2)

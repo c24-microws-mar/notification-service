@@ -1,3 +1,8 @@
+
+<html>
+<body style="color: #005ea8;">
+<div style="background-color: #005ea8; width:100%; color:#fff; font-size:20px; padding: 15px;">Check24 - MicroserviceWorkshop - MyBeatifullStore</div>
+
 Thank you Lucy Cechtelar for your order
 
 Your order will be delivered to:
@@ -9,3 +14,5 @@ Your order contains the following items:
 
 The Offspring - The Offspring 15.00
 Smash - The Offspring 20.00
+
+</body></html>

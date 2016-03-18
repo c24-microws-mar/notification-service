@@ -16,6 +16,7 @@ function createOrderNotification(req, res, next) {
   }
   const cartId = req.body.cartId;
   var mail = render.render('user-new-order', customer.name, customer.address);
+  mail.body = mail.body.replace(new RegExp('\n', 'g'), '<br/>\n');
 
   mailer.sendMailToCustomer(customer, mail.subject, mail.body, (success) => {
     if (success) {
