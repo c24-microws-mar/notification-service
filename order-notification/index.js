@@ -17,7 +17,7 @@ function registerRoutes(app) {
           message: 'an error occured while sending email notification'
         });
       } else {
-        res.status(200).send({
+        res.status(201).send({
           success: true
         });
       }
