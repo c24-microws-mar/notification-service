@@ -5,6 +5,7 @@ const cors = require('cors');
 const endpoints = require('express-endpoints');
 const gracefulShutdown = require('http-graceful-shutdown');
 const agent = require('multiagent');
+const bodyParser = require('body-parser');
 const orderNotificationRoutes = require('./order-notification/index');
 const config = require('./config');
 
@@ -20,6 +21,9 @@ const app = express();
 
 // Add CORS headers
 app.use(cors());
+
+// add bodyParser
+app.use(bodyParser.json());
 
 // Add health check endpoint
 app.get(SERVICE_CHECK_HTTP, (req, res) => res.send({ uptime: process.uptime() }));
