@@ -2,6 +2,7 @@
 
 const mailer = require('./mailer');
 const render = require('./render');
+const dataCollector = require('./dataCollector');
 
 function registerRoutes(app) {
   app.post('/order-notification', createOrderNotification);
@@ -14,21 +15,26 @@ function createOrderNotification(req, res, next) {
     name: person.name,
     address: person.address
   }
-  const cartId = req.body.cartId;
-  var mail = render.render('user-new-order', customer.name, customer.address);
-  mail.body = mail.body.replace(new RegExp('\n', 'g'), '<br/>\n');
 
-  mailer.sendMailToCustomer(customer, mail.subject, mail.body, (success) => {
-    if (success) {
-      res.status(201).send({
-        success: true
-      });
-    } else {
-      res.status(500).send({
-        success: false,
-        message: 'An error occured while sending a mail'
-      });
-    }
+  dataCollector.cartData(req.body.cart_id).catch(function (error) {
+    console.log(error);
+    return {};
+  }).then(function (cartData) {
+    var items = JSON.stringify(cartData);
+    var mail = render.render('user-new-order', customer.name, customer.address, items);
+    mail.body = mail.body.replace(new RegExp('\n', 'g'), '<br/>\n');
+    mailer.sendMailToCustomer(customer, mail.subject, mail.body, (success) => {
+      if (success) {
+        res.status(201).send({
+          success: true
+        });
+      } else {
+        res.status(500).send({
+          success: false,
+          message: 'An error occured while sending a mail'
+        });
+      }
+    });
   });
 }
 
