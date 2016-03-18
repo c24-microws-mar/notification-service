@@ -1,6 +1,6 @@
 Your order
 
-Thanks Lucy Cechtelar for your order
+Thank you Lucy Cechtelar for your order
 
 Your order will be delivered to:
 Lucy Cechtelar
@@ -9,4 +9,5 @@ Cartwrightshire, SC 88120-6700
 
 Your order contains the following items:
 
-{%items%}
+The Offspring - The Offspring 15.00
+Smash - The Offspring 20.00

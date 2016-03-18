@@ -9,4 +9,5 @@ Cartwrightshire, SC 88120-6700
 
 Items of the order:
 
-{%items%}
+The Offspring - The Offspring 15.00
+Smash - The Offspring 20.00
