@@ -1,0 +1,11 @@
+New order
+
+A new order has placed
+
+Send the items of the order to:
+{%name%}
+{%address%}
+
+Items of the order:
+
+{%items%}

@@ -1,0 +1,12 @@
+New order
+
+A new order has placed
+
+Send the items of the order to:
+Lucy Cechtelar
+426 Jordy Lodge
+Cartwrightshire, SC 88120-6700
+
+Items of the order:
+
+{%items%}

@@ -1,0 +1,11 @@
+Your order
+
+Thank you {%name%} for your order
+
+Your order will be delivered to:
+{%name%}
+{%address%}
+
+Your order contains the following items:
+
+{%items%}
