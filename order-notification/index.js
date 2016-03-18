@@ -1,19 +1,23 @@
 'use strict';
 
 const mailer = require('./mailer');
+const render = require('./render');
 
 function registerRoutes(app) {
   app.post('/order-notification', createOrderNotification);
 }
 
 function createOrderNotification(req, res, next) {
+  const person = req.body.person;
   const customer = {
-    email: 'pretty@beautiful.de'
+    email: person.email,
+    name: person.name,
+    address: person.address
   }
-  const subject = 'Your Order';
-  const mailBody = 'Thank you for your order';
+  const cartId = req.body.cartId;
+  var mail = render.render('user-new-order', customer.name, customer.address);
 
-  mailer.sendMailToCustomer(customer, subject, mailBody, (success) => {
+  mailer.sendMailToCustomer(customer, mail.subject, mail.body, (success) => {
     if (success) {
       res.status(201).send({
         success: true
