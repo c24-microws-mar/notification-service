@@ -17,8 +17,7 @@
     "express-endpoints": "^1.0.0",
     "http-graceful-shutdown": "^1.0.6",
     "multiagent": "^1.1.0",
-    "nodemailer": "^2.3.0",
-    "sendmail": "^0.2.1"
+    "nodemailer": "^2.3.0"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",

@@ -1,40 +1,46 @@
 'use strict';
 
-const sendmail = require('sendmail')();
+const nodemailer = require('nodemailer');
+const mailConfig = require('./mail-config');
 
 function registerRoutes(app) {
   app.post('/order-notification', (req, res, next) => {
 
-    triggerSendmail({
-      from: 'c24_microserviceworkshop@hentschel.email',
-      to: 'thomas.hentschel@check24.de',
-      subject: 'test sendmail',
-      content: 'Mail of test sendmail'
-    }, function (isError) {
-      if (isError) {
-        res.status(500).send({
-          success: false,
-          message: 'an error occured while sending email notification'
-        });
-      } else {
+    customer = {
+      email: 'pretty@beautiful.de'
+    }
+
+    // create reusable transporter object using the default SMTP transport
+    var transporter = nodemailer.createTransport(`smtp://${mailConfig.user}:${mailConfig.password}@${mailConfig.server}`);
+
+    // setup e-mail data with unicode symbols
+    var mailOptions = {
+        from: mailConfig.fromAdrdess, // sender address
+        to: cusomer.email, // list of receivers
+        subject: 'Hello', // Subject line
+        text: 'Hello world', // plaintext body
+        html: '<b>Hello world</b>' // html body
+    };
+
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+          console.log(error);
+          res.status(500).send({
+            success: false,
+            message: 'an error occured while sending email notification'
+          });
+          return;
+        }
+        console.log('Message sent: ' + info.response);
         res.status(201).send({
           success: true
         });
-      }
     });
+
   });
 }
 
-function triggerSendmail(options, callback) {
-  sendmail(options, function(err, reply) {
-    console.log('answer from sendmail: ', reply);
-    if (err) {
-      console.err('cannot send mail: ', err, options);
-    }
-    const isError = !!err;
-    callback(isError);
-  });
-}
 
 module.exports = {
   registerRoutes: registerRoutes
