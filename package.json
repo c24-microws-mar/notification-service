@@ -1,11 +1,11 @@
 {
-  "name": "example-service",
-  "version": "1.0.2",
+  "name": "notification-service",
+  "version": "1.0.0",
   "description": "This is a service example",
   "author": "Andreas Helmberger <public@ahelmberger.de>",
   "license": "MIT",
   "private": true,
-  "repository": "c24-microws-mar/example-service",
+  "repository": "c24-microws-mar/notification-service",
   "scripts": {
     "start": "node index.js",
     "test": "gulp test",
