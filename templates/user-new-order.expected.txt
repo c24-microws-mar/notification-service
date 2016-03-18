@@ -1,0 +1,12 @@
+Your order
+
+Thanks Lucy Cechtelar for your order
+
+Your order will be delivered to:
+Lucy Cechtelar
+426 Jordy Lodge
+Cartwrightshire, SC 88120-6700
+
+Your order contains the following items:
+
+{%items%}
